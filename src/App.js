@@ -1,34 +1,40 @@
 import React from 'react';
 
-function Food({ name, desc }) {
+function Food({ name, image }) {
   return (
     <div>
       <h2>I like {name}</h2>
-      <h3>{desc}</h3>
+      <img src={image} alt={name} />
     </div>
   );
 }
 
 const foodILike = [
   {
-    name: '돈가스',
-    desc: '빵가루 묻혀서 튀긴 돼지고기',
+    id: 1,
+    name: '김치',
+    image:
+      'http://aeriskitchen.com/wp-content/uploads/2008/09/kimchi_bokkeumbap_02-.jpg',
   },
   {
-    name: '치킨',
-    desc: '치느님',
+    id: 2,
+    name: '삼겹살',
+    image:
+      'https://3.bp.blogspot.com/-hKwIBxIVcQw/WfsewX3fhJI/AAAAAAAAALk/yHxnxFXcfx4ZKSfHS_RQNKjw3bAC03AnACLcBGAs/s400/DSC07624.jpg',
   },
   {
-    name: '피자',
-    desc: '혈관 꽉꽉 밀가루 반죽 ',
+    id: 3,
+    name: '비빔밥',
+    image:
+      'http://cdn-image.myrecipes.com/sites/default/files/styles/4_3_horizontal_-_1200x900/public/image/recipes/ck/12/03/bibimbop-ck-x.jpg?itok=RoXlp6Xb',
   },
 ];
 
 function App() {
   return (
     <div>
-      {foodILike.map((current) => (
-        <Food name={current.name} desc={current.desc} />
+      {foodILike.map((food) => (
+        <Food key={food.id} name={food.name} image={food.image} />
       ))}
     </div>
   );
